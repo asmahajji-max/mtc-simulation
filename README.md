@@ -1,46 +1,39 @@
 # MTC Simulation
 
-Simulation d'une architecture Merkle Tree Certificate (MTC) avec un design hybride RSA + ML-DSA, réalisée dans le cadre d'un Projet de Fin d'Études (PFE) sur la sécurité post-quantique des certificats numériques.
+Simulation d'une architecture Merkle Tree Certificate (MTC) avec un design hybride RSA + ML-DSA, développée dans le cadre d'un Projet de Fin d'Études (PFE) sur la sécurité post-quantique des certificats numériques.
 
-# Description
+À propos
 
-Ce projet implémente et simule les composants clés de l'architecture MTC :
+Les certificats numériques classiques (X.509) reposent sur des algorithmes comme RSA, vulnérables face aux futurs ordinateurs quantiques. L'architecture MTC (Merkle Tree Certificate) propose une alternative : au lieu de signer chaque certificat individuellement, les certificats sont regroupés dans un arbre de Merkle, dont seule la racine (Tree Head) est signée. Ce projet simule cette architecture avec un design hybride combinant RSA et ML-DSA (algorithme de signature post-quantique standardisé par le NIST).
 
-Génération de clés hybrides (RSA + ML-DSA)
-Autorité de certification (RSA CA)
-Autorité MTCA (Merkle Tree Certificate Authority) et création d'entrées de log
-Construction de l'arbre de Merkle (Merkle Tree)
-Preuves d'inclusion (inclusion proofs)
-Distribution du Tree Head
-Simulation du handshake TLS avec certificats hybrides
-Interface graphique (GUI) pour visualiser les certificats, l'arbre de Merkle et la vérification
-
-# Architecture
-
-core/
-  ├── models.py         # Modèles de données
-  ├── keys.py           # Génération de clés (RSA + ML-DSA)
-  ├── rsa_ca.py         # Autorité de certification RSA
-  ├── mtca.py           # Autorité MTCA
-  ├── merkle_tree.py    # Construction de l'arbre de Merkle
-  ├── tree_head.py      # Gestion du Tree Head
-  ├── registry.py       # Registre des sites
-  ├── client.py         # Simulation client TLS
-  └── server.py         # Simulation serveur TLS
-gui/
-  ├── main_window.py
-  └── views/
-      ├── certificates_view.py
-      ├── merkle_tree_view.py
-      ├── sites_view.py
-      └── verification_view.py
-data/
-  ├── ca/               # Clés et certificat de la CA racine
-  ├── certs/            # Certificats émis
-  ├── keys/             # Clés RSA et ML-DSA par site
-  └── mtca/             # Clés de l'autorité MTCA
-# Outils et technologies
-Python avec cryptography (RSA, X.509)
-OpenSSL 4.0.1 pour ML-DSA (appelé via subprocess)
-hashlib pour la construction de l'arbre de Merkle
-PySide6 pour l'interface graphique
+# Fonctionnalités
+🔑 Génération de clés hybrides (RSA + ML-DSA) par site
+🏛️ Autorité de certification (RSA CA) émettant des certificats X.509
+📜 Autorité MTCA (Merkle Tree Certificate Authority) créant des entrées de log
+🌳 Construction et gestion de l'arbre de Merkle
+✅ Génération et vérification de preuves d'inclusion (inclusion proofs)
+📡 Distribution et validation du Tree Head
+🔒 Simulation du handshake TLS avec certificats hybrides
+🖥️ Interface graphique (GUI) pour visualiser les certificats, l'arbre de Merkle et le processus de vérification
+Stack technique
+# Composant	Technologie
+Langage	Python
+Cryptographie classique	cryptography (RSA, X.509)
+Cryptographie post-quantique	OpenSSL 4.0.1 (ML-DSA, via subprocess)
+Arbre de Merkle	hashlib
+Interface graphique	PySide6
+# Structure du projet
+core/       → logique métier (clés, CA, MTCA, arbre de Merkle, TLS)
+gui/        → interface graphique et vues
+data/       → clés, certificats et registre générés
+main.py     → point d'entrée de l'application
+# Installation
+bash
+git clone https://github.com/asmahajji-max/mtc-simulation.git
+cd mtc-simulation
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+# Utilisation
+bash
+python main.py
