@@ -14,6 +14,8 @@ Distribution du Tree Head
 Simulation du handshake TLS avec certificats hybrides
 Interface graphique (GUI) pour visualiser les certificats, l'arbre de Merkle et la vérification
 Architecture
+
+
 core/
   ├── models.py         # Modèles de données
   ├── keys.py           # Génération de clés (RSA + ML-DSA)
