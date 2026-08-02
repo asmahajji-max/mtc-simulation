@@ -27,13 +27,4 @@ core/       → logique métier (clés, CA, MTCA, arbre de Merkle, TLS)
 gui/        → interface graphique et vues
 data/       → clés, certificats et registre générés
 main.py     → point d'entrée de l'application
-# Installation
-bash
-git clone https://github.com/asmahajji-max/mtc-simulation.git
-cd mtc-simulation
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-# Utilisation
-bash
-python main.py
+
