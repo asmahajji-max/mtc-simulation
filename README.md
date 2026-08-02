@@ -27,7 +27,6 @@ core/
   ├── registry.py       # Registre des sites
   ├── client.py         # Simulation client TLS
   └── server.py         # Simulation serveur TLS
-
 gui/
   ├── main_window.py
   └── views/
@@ -35,7 +34,6 @@ gui/
       ├── merkle_tree_view.py
       ├── sites_view.py
       └── verification_view.py
-
 data/
   ├── ca/               # Clés et certificat de la CA racine
   ├── certs/            # Certificats émis
